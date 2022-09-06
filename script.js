@@ -1,10 +1,15 @@
+const nav = document.querySelector("nav");
+const navOffsetTop = nav.offsetTop;
+const elevator = document.querySelector(".elevator");
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    document.body.style.backgroundColor = "pink";
+  let scroll = window.scrollY;
+  if (scroll > navOffsetTop) {
+    nav.classList.add("fixed-menu");
+    elevator.style.opacity = "1";
+    elevator.style.visibility = "visible";
   } else {
-    document.body.style.backgroundColor = "green";
+    nav.classList.remove("fixed-menu");
+    elevator.style.opacity = "0";
+    elevator.style.visibility = "hidden";
   }
 });
-
-test = window.history;
-console.log(test);
